@@ -15,15 +15,17 @@ os.environ['OPENAI_API_BASE'] = 'https://api3.wlai.vip/v1'
 
 def load_and_inspect_data():
     try:
+        print(f"当前工作目录是: {os.getcwd()}")
+        print(f"该目录下包含的文件: {os.listdir('.')}")
         # CO2
         print("Reading CO2 data...")
-        co2_data = pd.read_csv('co2_1880_2023.csv')
+        co2_data = pd.read_csv('./data/co2_1880_2023.csv')
         # city temperature
         print("Reading city temperature data...")
-        city_temp_data = pd.read_csv('GlobalLandTemperaturesByCity.csv')
+        city_temp_data = pd.read_csv('./data/GlobalLandTemperaturesByCity.csv')
         # country temperature
         print("Reading country temperature data...")
-        country_temp_data = pd.read_csv('GlobalLandTemperaturesByCountry.csv')
+        country_temp_data = pd.read_csv('./data/GlobalLandTemperaturesByCountry.csv')
         return co2_data, city_temp_data, country_temp_data
 
     except Exception as e:
